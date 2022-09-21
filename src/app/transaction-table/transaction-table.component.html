@@ -1,0 +1,74 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+       <!-- Position Column -->
+       <ng-container matColumnDef="transactionRefNo">
+        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>TransactionId</th>
+        <td mat-cell *matCellDef="let element"> {{element.transactionRefNo}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="valueDate">
+        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.valueDate}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="payerName">
+        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Payer</th>
+        <td mat-cell *matCellDef="let element"> {{element.payerName}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="payerAccountNo">
+        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Payer AccountNo</th>
+        <td mat-cell *matCellDef="let element"> {{element.payerAccountNo}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="payeeName">
+          <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef> Payee</th>
+          <td mat-cell *matCellDef="let element"> {{element.payeeName}} </td>
+        </ng-container>
+  
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="payeeAccountNo">
+          <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef> Payee AccountNo</th>
+          <td mat-cell *matCellDef="let element"> {{element.payeeAccountNo}} </td>
+        </ng-container>
+  
+<!-- Symbol Column -->
+<ng-container matColumnDef="validationStatus">
+  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Validation Status</th>
+  <td mat-cell *matCellDef="let element"> {{element.validationStatus}} </td>
+</ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="sanctioningStatus">
+  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Sanctioning Status</th>
+  <td mat-cell *matCellDef="let element"> {{element.sanctioningStatus}} </td>
+</ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="sanctionFailMessage">
+  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Sanction Message</th>
+  <td mat-cell *matCellDef="let element"> {{element.sanctionFailMessage}} </td>
+</ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="validationFailMessage">
+  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Validation Message</th>
+  <td mat-cell *matCellDef="let element"> {{element.validationFailMessage}} </td>
+</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>

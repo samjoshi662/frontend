@@ -1,5 +1,7 @@
-import { NONE_TYPE } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataService } from '../data.service';
 import { FileUploadService } from '../file-upload.service';
   
 @Component({
@@ -8,16 +10,17 @@ import { FileUploadService } from '../file-upload.service';
     styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
-  
     // Variable to store shortLink from api response
     shortLink: string = "";
     loading: boolean = false; // Flag variable
     file: File = null; // Variable to store file
-  
+    transactions : any;
+    subscription : Subscription
     // Inject service 
-    constructor(private fileUploadService: FileUploadService) { }
+    constructor(private fileUploadService: FileUploadService, private data : DataService) { }
   
     ngOnInit(): void {
+        this.subscription = this.data.currentTransactions.subscribe(transactions => this.transactions = transactions)
     }
   
     // On file Select
@@ -28,16 +31,16 @@ export class FileUploadComponent implements OnInit {
     // OnClick of button Upload
     onUpload() {
         this.loading = !this.loading;
-        console.log(this.file);
         this.fileUploadService.upload(this.file).subscribe(
-            (event: any) => {
-                if (typeof (event) === 'object') {
-  
-                    // Short link via api response
-                    this.shortLink = event.link;
-  
+            (data: any[]) => {
+                
+                console.log(this.data.currentTransactions)
+                    this.transactions = data
+                    console.log(data)
+                    console.log(this.data.currentTransactions)
+                    this.data.setTransactions(this.transactions)
                     this.loading = false; // Flag variable 
-                }
+                    console.log(this.data.currentTransactions)
             }
         );
     }
