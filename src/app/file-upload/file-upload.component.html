@@ -1,0 +1,29 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+<h1>IN FILE</h1>
+<div class="text-center">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)">
+  
+    <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button>
+</div>
+<!-- Shareable short link of  uploaded file -->
+<div class="container text-center jumbotron"
+    *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
+</div>
+  
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+</div>
+        </div>
+        </div>
+        </div>
+        </section>
