@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from '../data.service';
-import { SanctionService } from '../sanction.service';
+import { DataService } from '../services/Data/data.service';
+import { SanctionService } from '../services/Sanction/sanction.service';
 
 @Component({
   selector: 'app-sanction-button',

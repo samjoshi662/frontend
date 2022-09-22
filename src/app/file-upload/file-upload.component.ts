@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from '../data.service';
-import { FileUploadService } from '../file-upload.service';
+import { DataService } from '../services/Data/data.service';
+import { FileUploadService } from '../services/File-Upload/file-upload.service';
   
 @Component({
     selector: 'app-file-upload',

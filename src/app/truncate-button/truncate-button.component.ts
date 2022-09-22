@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DataService } from '../data.service';
-import { TruncateService } from '../truncate.service';
+import { DataService } from '../services/Data/data.service';
+import { TruncateService } from '../services/Truncate/truncate.service';
 
 @Component({
   selector: 'app-truncate-button',

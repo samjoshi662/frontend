@@ -5,14 +5,19 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TruncateService {
-  baseApiUrl = "http://localhost:8008/api/transaction/truncate"
+export class DashboardService {
+
+      
+  // API url
+  baseApiUrl = "http://localhost:8080/api/transaction/dashboard"
     
   constructor(private http:HttpClient) { }
   
   // Returns an observable
-  upload() {
-      console.log("In truncate")
+  upload():Observable<any> {
+        
+      // Make http post request over api
+      // with formData as req
       let data = this.http.get(this.baseApiUrl)
       console.log(data)
       return data

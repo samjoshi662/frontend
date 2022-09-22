@@ -1,0 +1,29 @@
+<app-header></app-header>
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+            <h6>Enter keyword</h6>
+            <form>
+            <input type="text" id="username" class="fadeIn second"  name="keyword" placeholder="Keyword" [(ngModel)]="keyword">
+            <div>
+            <input type="submit" (click)=add() class="fadeIn fourth" value="Add Keyword">
+            <input type="submit" (click)=remove() class="fadeIn fourth" value="Remove Keyword">
+            </div>
+            <div>
+                <h3>Keywords</h3>
+                <div class="list">
+                <mat-selection-list [multiple]="false">
+                    <mat-list-option *ngFor="let keyword of keywords" [value]="keyword">
+                      {{keyword}}
+                      <mat-divider></mat-divider>
+                    </mat-list-option>
+                  </mat-selection-list>
+                  </div>
+
+            </div>
+        </form>
+            </div>
+            </div>
+            </div>
+            </section>

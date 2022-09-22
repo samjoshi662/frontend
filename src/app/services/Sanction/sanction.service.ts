@@ -1,29 +1,22 @@
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FileUploadService {
+export class SanctionService {
     
   // API url
-  baseApiUrl = "http://localhost:8008/api/transaction/getFile"
+  baseApiUrl = "http://localhost:8080/api/transaction/sanction"
     
   constructor(private http:HttpClient) { }
   
   // Returns an observable
-  upload(file):Observable<any> {
-  
-      // Create form data
-      const formData = new FormData(); 
-        
-      // Store form name as "file" with file data
-      formData.append("file", file, file.name);
+  upload():Observable<any> {
         
       // Make http post request over api
       // with formData as req
-      let data = this.http.post(this.baseApiUrl, formData)
+      let data = this.http.get(this.baseApiUrl)
       console.log(data)
       return data
   }

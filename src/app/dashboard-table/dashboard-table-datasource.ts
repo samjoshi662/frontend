@@ -3,34 +3,28 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { DataService } from '../services/Data/data.service';
 
 // TODO: Replace this with your own data model type
-export interface TransactionTableItem {
-  name: string;
-  id: number;
-  transactionRefNo: string ;
-  valueDate: string ;
-  payerName:string    ; 
-  payerAccountNumber:string ;
-  payeeName: string;
-  payeeAccountNumber : string;
-  amount : number;
-  validationStatus : string ;
-  sanctioningStatus : string ;
-  sanctionFailMessage : string;
-  validationFailMessage : string;
-  filename : string
+export interface DashboardTableItem {
+  filename : string,
+  numTransactions : number,
+  timestamp : string,
+  numValidationFailed : number,
+  numSanctionFailed : number
 }
+
+// TODO: replace this with real data from your application
+
 /**
- * Data source for the TransactionTable view. This class should
+ * Data source for the DashboardTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class TransactionTableDataSource extends DataSource<TransactionTableItem> {
-  data: TransactionTableItem[]
+export class DashboardTableDataSource extends DataSource<DashboardTableItem> {
+  data: DashboardTableItem[];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
+
   constructor(data : any[]) {
     super();
     console.log("in TTDS constructor")
@@ -43,19 +37,14 @@ export class TransactionTableDataSource extends DataSource<TransactionTableItem>
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<TransactionTableItem[]> {
-   // this.data = this.dataService.currentTransactions
+  connect(): Observable<DashboardTableItem[]> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      let x = merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
+      return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          let y = this.getPagedData(this.getSortedData([...this.data ]));
-          console.log(y)
-          return y
+          return this.getPagedData(this.getSortedData([...this.data ]));
         }));
-        console.log(x)
-        return x
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
     }
@@ -71,7 +60,7 @@ export class TransactionTableDataSource extends DataSource<TransactionTableItem>
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: TransactionTableItem[]): TransactionTableItem[] {
+  private getPagedData(data: DashboardTableItem[]): DashboardTableItem[] {
     if (this.paginator) {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
       return data.splice(startIndex, this.paginator.pageSize);
@@ -84,7 +73,7 @@ export class TransactionTableDataSource extends DataSource<TransactionTableItem>
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: TransactionTableItem[]): TransactionTableItem[] {
+  private getSortedData(data: DashboardTableItem[]): DashboardTableItem[] {
     if (!this.sort || !this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -92,7 +81,8 @@ export class TransactionTableDataSource extends DataSource<TransactionTableItem>
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'filename': return compare(a.filename, b.filename, isAsc);
+
         default: return 0;
       }
     });

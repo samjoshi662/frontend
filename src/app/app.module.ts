@@ -14,7 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { SanctionButtonComponent } from './sanction-button/sanction-button.component';
 import { TruncateButtonComponent } from './truncate-button/truncate-button.component';
-
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SanctionPageComponent } from './SanctionPage/SanctionPage.component';
+import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
+import { KeywordComponent } from './keyword/keyword.component';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +30,11 @@ import { TruncateButtonComponent } from './truncate-button/truncate-button.compo
     TransactionTableComponent,
     SanctionButtonComponent,
     TruncateButtonComponent,
+    LoginComponent,
+    SanctionPageComponent,
+    DashboardComponent,
+    DashboardTableComponent,
+    KeywordComponent,
     
   ],
   imports: [
@@ -33,7 +44,10 @@ import { TruncateButtonComponent } from './truncate-button/truncate-button.compo
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatListModule,
+    FormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
