@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
+import { ApiModule } from 'elasticemail-angular';
 import { FooterComponent } from './footer/footer.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MatTableModule } from '@angular/material/table';
@@ -21,6 +22,8 @@ import { SanctionPageComponent } from './SanctionPage/SanctionPage.component';
 import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
 import { KeywordComponent } from './keyword/keyword.component';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,10 @@ import {MatListModule} from '@angular/material/list';
     
   ],
   imports: [
+    MatSelectModule,
+    MatExpansionModule,
     BrowserModule,
+    ApiModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,

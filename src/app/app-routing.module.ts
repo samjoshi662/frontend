@@ -17,6 +17,10 @@ const routes: Routes = [
     component : LoginComponent
   },
   {
+    path : 'logout',
+    component : LoginComponent
+  },
+  {
     path : '',
     component : DashboardComponent,
     canActivate:[AuthguardService] 
@@ -26,6 +30,7 @@ const routes: Routes = [
     component : KeywordComponent,
     canActivate:[AuthguardService] 
   },
+  
 ];
 
 @NgModule({

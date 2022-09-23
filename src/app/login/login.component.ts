@@ -23,15 +23,26 @@ export class LoginComponent implements OnInit {
   successMessage: string;
   invalidLogin = false;
   loginSuccess = false;
-
-  constructor(private router: Router,private authService: AuthService) {}
+  passwordInvalid = false
+  passwordInvalidMessage = "Password must be greater 8 than characters"
+  constructor(private router: Router,private authService: AuthService) {
+    sessionStorage.clear()
+  }
 
   ngOnInit(): void {
   }
-
+  onChange(){
+    if(this.password.length >= 8){
+      this.passwordInvalid = false
+    }
+    this.invalidLogin = false
+  }
   handleLogin() {
-
     this.authService.login(this.username, this.password).subscribe((result : null | User) => {
+      if(this.password.length < 8){
+        this.passwordInvalid = true
+        return
+      }
       if(result!=null){
       this.invalidLogin = false;
       this.loginSuccess = true;

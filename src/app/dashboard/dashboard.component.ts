@@ -14,18 +14,25 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardService, private data : DataService) {
     this.dashboardService.upload().subscribe(
       (data: any[]) => {
-          
           console.log(this.data.currentTransactions)
               this.fileData= data
               console.log(data)
               console.log(this.data.currentTransactions)
               this.data.setFileInformation(this.fileData)
-              
       }
   );
    }
   
     ngOnInit(): void {
         this.subscription = this.data.currentFileInformation.subscribe(fileData => this.fileData = fileData)
+        this.dashboardService.upload().subscribe(
+          (data: any[]) => {
+              console.log(this.data.currentTransactions)
+                  this.fileData= data
+                  console.log(data)
+                  console.log(this.data.currentTransactions)
+                  this.data.setFileInformation(this.fileData)
+          }
+      );
     }
 }

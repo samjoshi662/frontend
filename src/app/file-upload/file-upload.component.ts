@@ -33,7 +33,6 @@ export class FileUploadComponent implements OnInit {
         this.loading = !this.loading;
         this.fileUploadService.upload(this.file).subscribe(
             (data: any[]) => {
-                
                 console.log(this.data.currentTransactions)
                     this.transactions = data
                     console.log(data)

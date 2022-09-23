@@ -8,8 +8,9 @@ html {
   }
   
   body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
+    font-family: sans-serif;
+    height: 100%;
+    background-color: #56baed;
   }
   
   a {
@@ -41,6 +42,10 @@ html {
     width: 100%;
     min-height: 100%;
     padding: 20px;
+  }
+
+  bod{
+    background-color: #56baed;
   }
   
   #formContent {
@@ -86,7 +91,7 @@ html {
     background-color: #56baed;
     border: none;
     color: white;
-    padding: 15px 80px;
+    padding: 15px 60px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -120,7 +125,7 @@ html {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
-    padding: 15px 32px;
+    padding: 15px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

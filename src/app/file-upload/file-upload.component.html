@@ -7,10 +7,10 @@
     <input class="form-control" type="file" 
             (change)="onChange($event)">
   
-    <button (click)="onUpload()" 
-        class="btn btn-success">
-        Upload
-    </button>
+   
+
+    <input type="submit" (click)=onUpload() class="fadeIn fourth" value="Upload">
+
 </div>
 <!-- Shareable short link of  uploaded file -->
 <div class="container text-center jumbotron"

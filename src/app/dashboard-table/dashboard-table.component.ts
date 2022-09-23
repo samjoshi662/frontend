@@ -29,7 +29,7 @@ export class DashboardTableComponent implements AfterViewInit {
       this.fileInformation= fileInformation
       this.cd.markForCheck();
       this.cd.detectChanges()
-      console.log("in check")
+      console.log("in dashboard ngonit")
       this.dataSource = new DashboardTableDataSource(this.fileInformation)
       this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

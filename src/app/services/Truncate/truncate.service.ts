@@ -14,7 +14,7 @@ export class TruncateService {
   upload() {
       console.log("In truncate")
       let data = this.http.get(this.baseApiUrl)
-      
-      return new Observable()
+      console.log(data)
+      return data
   }
 }
