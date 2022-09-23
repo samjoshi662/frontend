@@ -24,6 +24,9 @@ import { KeywordComponent } from './keyword/keyword.component';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
+import { ArchivesComponent } from './archives/archives.component';
+import { ArchiveTableComponent } from './archive-table/archive-table.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +41,9 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardComponent,
     DashboardTableComponent,
     KeywordComponent,
+    ArchivesComponent,
+    ArchiveTableComponent,
+    AnalyticsComponent,
     
   ],
   imports: [

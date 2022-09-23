@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DashboardService } from '../services/dashboard.service';
 import { DataService } from '../services/Data/data.service';
+import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ import { DataService } from '../services/Data/data.service';
 export class DashboardComponent implements OnInit {
   subscription : Subscription
   fileData : any[]
-  constructor(private dashboardService: DashboardService, private data : DataService) {
+  constructor(private dashboardService: DashboardService, private data : DataService, private cd:ChangeDetectorRef) {
     this.dashboardService.upload().subscribe(
       (data: any[]) => {
           console.log(this.data.currentTransactions)
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
               this.data.setFileInformation(this.fileData)
       }
   );
+
    }
   
     ngOnInit(): void {
@@ -29,10 +31,15 @@ export class DashboardComponent implements OnInit {
           (data: any[]) => {
               console.log(this.data.currentTransactions)
                   this.fileData= data
-                  console.log(data)
+
+                  console.log(data+"in dashcomponent")
+                  this.cd.markForCheck();
+                  this.cd.detectChanges()
+
                   console.log(this.data.currentTransactions)
                   this.data.setFileInformation(this.fileData)
           }
       );
     }
-}
+
+  }

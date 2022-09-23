@@ -1,15 +1,13 @@
-<section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="row justify-content-center">
-        <div class="col-xl-7 col-lg-9 text-center">
+
+
 <h1>SANCTION</h1>
-<div class="text-center">
+<div class="text-center sanction" >
     <input class="form-control" type="file" 
             (change)="onChange($event)">
   
    
 
-    <input type="submit" (click)=onUpload() class="fadeIn fourth" value="Upload">
+    <input type="submit" (click)=onUpload() class="fadeIn fourth" value="Upload" style="margin:20px">
 
 </div>
 <!-- Shareable short link of  uploaded file -->
@@ -23,7 +21,6 @@
 <div class="container" *ngIf="loading">
     <h3>Loading ...</h3>
 </div>
-</div>
-</div>
-</div>
-        </section>
+
+
+        

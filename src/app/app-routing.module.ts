@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { ArchivesComponent } from './archives/archives.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { KeywordComponent } from './keyword/keyword.component';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +30,16 @@ const routes: Routes = [
   {
     path : 'keyword',
     component : KeywordComponent,
+    canActivate:[AuthguardService] 
+  },
+  {
+    path : 'archives',
+    component : ArchivesComponent,
+    canActivate:[AuthguardService] 
+  },
+  {
+    path : 'analytics',
+    component : AnalyticsComponent,
     canActivate:[AuthguardService] 
   },
   

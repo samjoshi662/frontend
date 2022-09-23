@@ -95,7 +95,7 @@ export class TransactionTableComponent implements AfterViewInit, OnInit, OnChang
   }
     else if (val === 'sanctioningStatusFail'){
       elements = this.transactions.filter(transaction =>{
-        return transaction.sanctionStatus !== 'Pass'
+        return transaction.sanctioningStatus !== 'Pass'
       })
     }
     else{

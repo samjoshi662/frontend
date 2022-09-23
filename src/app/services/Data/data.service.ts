@@ -8,6 +8,8 @@ export class DataService {
   currentTransactions = this.transactionSource.asObservable();
   private fileInformationSource = new BehaviorSubject([]);
   currentFileInformation = this.fileInformationSource.asObservable();
+  private archivesSource = new BehaviorSubject([]);
+  archivesTransactions = this.archivesSource.asObservable();
   constructor() { }
 
   setTransactions(transactionData : any[]){
@@ -16,6 +18,11 @@ export class DataService {
   
   }
 
+  setArchives(transactionData : any[]){
+    this.archivesSource.next(transactionData)
+    console.log(transactionData)
+  
+  }
   setFileInformation(fileData : any[]){
     this.fileInformationSource.next(fileData)
     console.log(fileData)

@@ -43,10 +43,10 @@ export class TruncateButtonComponent implements OnInit {
     body = body + "</table>"
     Email.send({
       Host : "smtp.elasticemail.com",
-      Username : "nupur.shah@cumminscollege.in",
-      Password : "CFA3006C0315182ADC388D5DBD3D8BA1425F",
-      To : 'nupur.shah@cumminscollege.in',
-      From : "nupur.shah@cumminscollege.in",
+      Username : "shahnupur1901@gmail.com",
+      Password : "F38D8DC03E3DFFA71553077FDC61D408FD5E",
+      To : 'shahnupur1901@gmail.com',
+      From : "shahnupur1901@gmail.com",
       Subject : "Sanction Report",
       Body : body
   }).then(

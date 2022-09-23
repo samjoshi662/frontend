@@ -1,8 +1,23 @@
+
 <app-header></app-header>
-<app-file-upload></app-file-upload>
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-9 text-center">
+                    <app-file-upload></app-file-upload>
+         </div>
+</div>
 <div  *ngIf="isDataUploaded">
-<app-transaction-table></app-transaction-table>
-<app-sanction-button></app-sanction-button>
-<app-truncate-button></app-truncate-button>
+    <div class="row justify-content-center">
+    <div class="col-xl-12 col-lg-12 text-center">
+                    <app-transaction-table></app-transaction-table>
+
+                    <app-sanction-button></app-sanction-button>
+                    <app-truncate-button></app-truncate-button>
+    </div>
+    </div>
 
 </div>
+</div>
+</section>
