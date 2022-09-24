@@ -11,7 +11,7 @@
       <!-- Login Form -->
       <form>
         <input type="text" id="username" class="fadeIn second" [(ngModel)]="username" name="username" placeholder="Enter Username">
-        <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="password" placeholder="Enter Password" >
+        <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="password" placeholder="Enter Password" (change)=onChange()>
         <input type="submit" (click)=handleLogin() class="fadeIn fourth" value="Log In">
       </form>
   

@@ -10,48 +10,48 @@
   <table class="mat-elevation-z8 full-width-table" mat-table  matSort aria-label="Elements">
      
        <ng-container matColumnDef="transactionRefNo">
-        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>TransactionId</th>
+        <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>TransactionId</th>
         <td mat-cell *matCellDef="let element" [style.background-color]="element.color" >{{element.transactionRefNo}} </td>
       </ng-container>
     
       <!-- Name Column -->
       <ng-container matColumnDef="valueDate">
-        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Date</th>
+        <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Date</th>
         <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.valueDate.substring(10)}} </td>
       </ng-container>
     
       <!-- Weight Column -->
       <ng-container matColumnDef="payerName">
-        <th style="text-align:center;font-size: 16px;width:10%" mat-header-cell *matHeaderCellDef>Payer</th>
+        <th style="text-align:center;font-size: 16px;width:10%;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Payer</th>
         <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.payerName.substring(0,15)+' '+element.payerName.substring(15)}} </td>
       </ng-container>
     
       <!-- Symbol Column -->
       <ng-container matColumnDef="payerAccountNo">
-        <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Payer Account No</th>
+        <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Payer Account No</th>
         <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.payerAccountNumber}} </td>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="payeeName">
-          <th style="text-align:center;font-size: 16px;width:10%" mat-header-cell *matHeaderCellDef>Payee</th>
+          <th style="text-align:center;font-size: 16px;width:10%;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Payee</th>
           <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.payeeName.substring(0,15)+' '+element.payeeName.substring(15)}} </td>
         </ng-container>
   
         <!-- Symbol Column -->
       <ng-container matColumnDef="payeeAccountNo">
-          <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Payee Account No</th>
+          <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Payee Account No</th>
           <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.payeeAccountNumber}} </td>
         </ng-container>
 
         <ng-container matColumnDef="amount">
-          <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Amount</th>
+          <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Amount</th>
           <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.amount}} </td>
         </ng-container>
   
 <!-- Symbol Column -->
 <ng-container matColumnDef="validationStatus">
-  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Validation Status</th>
+  <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Validation Status</th>
   <td mat-cell *matCellDef="let element" [style.background-color]="element.color" > {{element.validationStatus}} </td>
 </ng-container>
 
@@ -59,13 +59,13 @@
 
 <!-- Symbol Column -->
 <ng-container matColumnDef="sanctioningStatus">
-  <th style="text-align:center;font-size: 16px;" mat-header-cell *matHeaderCellDef>Sanction Status</th>
+  <th style="text-align:center;font-size: 16px;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef>Sanction Status</th>
   <td mat-cell *matCellDef="let element" [style.background-color]="element.color"> {{element.sanctioningStatus}} </td>
 </ng-container>
 
 <!-- Symbol Column -->
 <ng-container matColumnDef="sanctionFailMessage">
-  <th style="font-size: 16px;text-align:center " mat-header-cell *matHeaderCellDef >Message</th>
+  <th style="font-size: 16px;text-align:center ;background-color:#124265; color:white;" mat-header-cell *matHeaderCellDef >Message</th>
   <td mat-cell *matCellDef="let element" width="15%" [style.background-color]="element.color"> {{element.sanctionFailMessage}} {{element.validationFailMessage}} </td>
 </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -43,21 +43,21 @@ export class TruncateButtonComponent implements OnInit {
       }
     })
     body = body + "</table>"
-  //   Email.send({
-  //     Host : "mail.smtp2go.com",
-  //     Username : "shahnupur1901@gmail.com",
-  //     Password : "TQNC5TzfdVjf8dqK",
-  //     To : 'shahnupur1901@gmail.com',
-  //     From : "shahnupur1901@gmail.com",
-  //     Subject : "Sanction Report",
-  //     Body : body
-  // }).then(
-  //   message => {
-  //     alert(message)
-  //     // if(message!="ok") alert("Email sent.")
-  //     // else alert(message)
-  //   }
-  //);
+    Email.send({
+      Host : "mail.smtp2go.com",
+      Username : "shahnupur1901@gmail.com",
+      Password : "TQNC5TzfdVjf8dqK",
+      To : 'shahnupur1901@gmail.com',
+      From : "shahnupur1901@gmail.com",
+      Subject : "Sanction Report",
+      Body : body
+  }).then(
+    message => {
+      alert(message)
+      // if(message!="ok") alert("Email sent.")
+      // else alert(message)
+    }
+  );
 
     this.truncateService.upload().subscribe(
         (data: any) => {
