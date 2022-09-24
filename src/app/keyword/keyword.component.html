@@ -15,7 +15,10 @@
                 <div class="list">
                 <mat-selection-list [multiple]="false">
                     <mat-list-option *ngFor="let keyword of keywords" [value]="keyword">
-                      {{keyword}}
+                      <div>{{keyword}}
+                      <button (click)="removeKeyword(keyword)" mat-icon-button style="border-width : 0px;background-color: transparent; text-align: right;vertical-align:sub">
+                        <mat-icon>delete</mat-icon>
+                     </button></div>
                       <mat-divider></mat-divider>
                     </mat-list-option>
                   </mat-selection-list>

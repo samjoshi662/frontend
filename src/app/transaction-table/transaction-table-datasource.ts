@@ -20,7 +20,8 @@ export interface TransactionTableItem {
   sanctioningStatus : string ;
   sanctionFailMessage : string;
   validationFailMessage : string;
-  filename : string
+  filename : string,
+  color : string
 }
 /**
  * Data source for the TransactionTable view. This class should

@@ -27,6 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ArchivesComponent } from './archives/archives.component';
 import { ArchiveTableComponent } from './archive-table/archive-table.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { MatIconModule } from '@angular/material/icon'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     ArchivesComponent,
     ArchiveTableComponent,
     AnalyticsComponent,
+
     
   ],
   imports: [
@@ -59,7 +61,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     MatSortModule,
     MatListModule,
     FormsModule,
-   
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

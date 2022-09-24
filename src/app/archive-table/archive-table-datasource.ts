@@ -19,7 +19,8 @@ export interface ArchiveTableItem {
   sanctioningStatus : string ;
   sanctionFailMessage : string;
   validationFailMessage : string;
-  filename : string
+  filename : string;
+  color : string
 }
 
 // TODO: replace this with real data from your application

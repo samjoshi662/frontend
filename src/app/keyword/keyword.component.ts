@@ -44,6 +44,22 @@ remove() {
         })
       }
   );
-}}
+}
+removeKeyword(keyword) {
+  this.keywordService.remove(keyword).subscribe(
+      () => {
+        this.keywordService.get().subscribe((keywords)=>{
+          this.keywords = keywords
+        })
+      },
+      () => {
+        this.keywordService.get().subscribe((keywords)=>{
+          this.keywords = keywords
+        })
+      }
+  );
+  alert("Keyword "+keyword+" is removed.")
+}
+}
 
 

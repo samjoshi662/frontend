@@ -36,25 +36,28 @@ export class TruncateButtonComponent implements OnInit {
   onUpload() {
     let body = "<table><tr><th>Transaction ID</th><th>Sanctioning Status</th><th>Message</th></tr>  "
     this.transactions.forEach((transaction : TransactionTableItem)=>{
+      if(transaction.sanctioningStatus !== "Pass"){
       var sentence = "<tr><td>"+transaction.transactionRefNo+"</td><td>"+
       transaction.sanctioningStatus+"</td><td>"+transaction.sanctionFailMessage +" " + transaction.validationFailMessage +"</td></tr>"
       body = body + sentence 
+      }
     })
     body = body + "</table>"
-    Email.send({
-      Host : "smtp.elasticemail.com",
-      Username : "shahnupur1901@gmail.com",
-      Password : "F38D8DC03E3DFFA71553077FDC61D408FD5E",
-      To : 'shahnupur1901@gmail.com',
-      From : "shahnupur1901@gmail.com",
-      Subject : "Sanction Report",
-      Body : body
-  }).then(
-    message => {
-      if(message!="ok") alert("Email sent.")
-      else alert(message)
-    }
-  );
+  //   Email.send({
+  //     Host : "mail.smtp2go.com",
+  //     Username : "shahnupur1901@gmail.com",
+  //     Password : "TQNC5TzfdVjf8dqK",
+  //     To : 'shahnupur1901@gmail.com',
+  //     From : "shahnupur1901@gmail.com",
+  //     Subject : "Sanction Report",
+  //     Body : body
+  // }).then(
+  //   message => {
+  //     alert(message)
+  //     // if(message!="ok") alert("Email sent.")
+  //     // else alert(message)
+  //   }
+  //);
 
     this.truncateService.upload().subscribe(
         (data: any) => {

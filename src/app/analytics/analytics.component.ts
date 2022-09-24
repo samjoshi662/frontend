@@ -13,6 +13,7 @@ export class AnalyticsComponent implements OnInit {
   fileData : any[]
   BarChart : any
   PieChart : any
+  LineChart: any
   constructor(private dashboardService: DashboardService, private data : DataService, private cd:ChangeDetectorRef) {
     Chart.register(...registerables);
     this.dashboardService.upload().subscribe(
@@ -34,6 +35,8 @@ export class AnalyticsComponent implements OnInit {
               console.log(data+"in dashcomponent")
               this.createBarChart()
               this.createPieChart()
+              this.createLineChartv()
+              this.createLineCharts()
               this.cd.markForCheck();
               this.cd.detectChanges()
 
@@ -69,6 +72,13 @@ createBarChart(){
             return data.numTransactions - data.numSanctionFailed 
           }).slice(0,5),
           backgroundColor: 'limegreen'
+        } ,
+        {
+          label: "Number of Valid transactions",
+          data: this.fileData.map(data=>{
+            return data.numTransactions - data.numValidationFailed 
+          }).slice(0,5),
+          backgroundColor: 'purple'
         }  
       ]
     },
@@ -92,17 +102,17 @@ createPieChart(){
   console.log(sanctionedFail)
   console.log(numTransactions)
   this.PieChart = new Chart("PieChart", {
-    type: 'pie', //this denotes tha type of chart
-    data: {// values on X-Axis
+    type: 'pie', 
+    data: {
       labels: ['Validations failed', 'Sanction failed and validation passed', 'Sanctioned pass'],
        datasets: [
         {
-          label: "Transactions",
+          label: "Transaction Status",
           data:[validationFail, sanctionedFail - validationFail,numTransactions - sanctionedFail ],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            'rgb(144 ,238 ,144)'
           ],
           hoverOffset : 6
           
@@ -113,6 +123,48 @@ createPieChart(){
    
     
   });
+}
+
+createLineChartv(){
+  const data = {
+  labels: this.fileData.map((file)=>{
+    return file.filename
+  }).slice(0,5),
+  datasets: [{
+    label: 'Validation fail percentage',
+    data: this.fileData.map((file)=>{
+      return (file.numValidationFailed/file.numTransactions)*100
+    }).slice(0,5),
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+  this.LineChart = new Chart("LineChartv", {
+    type: 'line', 
+    data : data
+})
+}
+
+createLineCharts(){
+  const data = {
+  labels: this.fileData.map((file)=>{
+    return file.filename
+  }).slice(0,5),
+  datasets: [{
+    label: 'Sanction fail percentage',
+    data: this.fileData.map((file)=>{
+      return (file.numSanctionFailed/file.numTransactions)*100
+    }).slice(0,5),
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+  this.LineChart = new Chart("LineCharts", {
+    type: 'line', 
+    data : data
+})
 }
 
 }

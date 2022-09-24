@@ -20,25 +20,40 @@ export class ArchiveTableComponent implements AfterViewInit, OnInit {
   subscription : Subscription;
   transactions : any[]
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['transactionRefNo', 'valueDate', 'payerName', 'payerAccountNo', 'payeeName', 'payerAccountNo',
+  displayedColumns = ['transactionRefNo', 'valueDate', 'payerName', 'payerAccountNo', 'payeeName', 'payeeAccountNo','amount',
   'validationStatus',
   'sanctioningStatus',
   'sanctionFailMessage',
   'filename'
 ];
 constructor(private dataService: DataService, private cd: ChangeDetectorRef, private archivesService : ArchivesService) {
+ 
   this.dataSource = new ArchiveTableDataSource(this.transactions)
+
 }
   ngAfterViewInit(): void {
     
   }
-
+  // applyFilter(filterValue: string) {
+  //   filterValue = filterValue.trim(); // Remove whitespace
+  //   filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+  //   this.dataSource.filter = filterValue;
+  // }
   ngOnInit(): void {
+
     this.archivesService.upload().subscribe((transactions)=>{
       this.dataService.setTransactions(transactions)
       this.transactions = transactions
       console.log(this.transactions)
       console.log("oninit")
+      this.transactions.forEach((transaction)=>{
+        if(transaction.sanctioningStatus !== "Pass"){
+          transaction.color = "#f2dede"
+        }
+        else{
+          transaction.color = "#dff0d8"
+        }
+      })
       this.dataSource = new ArchiveTableDataSource(this.transactions)
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

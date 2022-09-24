@@ -29,7 +29,7 @@ export class TransactionTableComponent implements AfterViewInit, OnInit, OnChang
   transactions : any[]
   status : dropdown[]
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['transactionRefNo', 'valueDate', 'payerName', 'payerAccountNo', 'payeeName', 'payerAccountNo',
+  displayedColumns = ['transactionRefNo', 'valueDate', 'payerName', 'payerAccountNo', 'payeeName', 'payeeAccountNo','amount',
   'validationStatus',
   'sanctioningStatus',
   'sanctionFailMessage',
@@ -58,6 +58,17 @@ export class TransactionTableComponent implements AfterViewInit, OnInit, OnChang
       this.transactions = transactions
       this.cd.markForCheck();
       this.cd.detectChanges()
+      this.transactions.forEach((transaction)=>{
+        if(transaction.sanctioningStatus === "Pass"){
+          transaction.color = "#dff0d8"
+        }
+        else if(transaction.sanctioningStatus === "Pending"){
+          transaction.color = "#00000" 
+        }
+        else{
+          transaction.color = "#f2dede" 
+        }
+      })
       this.dataSource = new TransactionTableDataSource(this.transactions)
       this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

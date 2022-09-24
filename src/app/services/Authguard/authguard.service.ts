@@ -18,6 +18,7 @@ export class AuthguardService implements CanActivate {
       return new Promise((resolve, reject) => {
         if(sessionStorage.getItem('username')!=null && sessionStorage.getItem('role')==="SUPER-ADMIN") return resolve(true)
         else {
+          alert("Access denied.")
           this.router.navigate(['login'])
           return resolve(false)
         }
