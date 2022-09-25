@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
-import { ApiModule } from 'elasticemail-angular';
+
 import { FooterComponent } from './footer/footer.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MatTableModule } from '@angular/material/table';
@@ -52,7 +52,6 @@ import { MatIconModule } from '@angular/material/icon'
     MatSelectModule,
     MatExpansionModule,
     BrowserModule,
-    ApiModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
