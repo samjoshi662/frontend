@@ -1,9 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MatPseudoCheckbox } from '@angular/material/core';
 import { Subscription } from 'rxjs';
 import { DataService } from '../services/Data/data.service';
 import { FileUploadService } from '../services/File-Upload/file-upload.service';
-  
+declare let Email : any
 @Component({
     selector: 'app-file-upload',
     templateUrl: './file-upload.component.html',
@@ -40,7 +41,36 @@ export class FileUploadComponent implements OnInit {
                     this.data.setTransactions(this.transactions)
                     this.loading = false; // Flag variable 
                     console.log(this.data.currentTransactions)
-            }
-        );
+                    let refNo : string
+                    for (let i=0;i<data.length;i++){
+                        if(data[i].validationStatus === "Fail"){
+                            refNo = data[i].transactionRefNo
+                            break
+                        }
+                    }
+        //             this.fileUploadService.email().subscribe((emails :[])=>{
+        //                 console.log(emails)
+        //                 emails.forEach((email)=>{
+        //                     Email.send({
+        //                         Host : "smtp.elasticemail.com",
+        //                         Username : "nupurdata1901@gmail.com",
+        //                         Password : "",
+        //                         To : email,
+        //                         From : "nupurdata1901@gmail.com",
+        //                         Subject : "Transaction Failure",
+        //                         Body : "Your transaction with reference no "+refNo+" has failed. Please contact your bank for further information."
+        //                     }).then(
+        //                       message => {
+        //                         alert("Email sent "+(message))
+        //                         // if(message!="ok") alert("Email sent.")
+        //                         // else alert(message)
+        //                       }
+        //                     )
+        //             })
+                
+        //     }
+        // )
     }
+    )};
+        
 }

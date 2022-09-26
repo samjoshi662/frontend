@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  empName : string
+  constructor() { 
+    this.empName = sessionStorage.getItem('name')
+    console.log(this.empName)
+  }
 
   ngOnInit(): void {
+    this.empName = sessionStorage.getItem('name')
   }
 
 }

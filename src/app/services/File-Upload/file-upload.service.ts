@@ -27,4 +27,13 @@ export class FileUploadService {
       console.log(data)
       return data
   }
+
+  email():Observable<any> {
+  
+  
+    let data = this.http.get("http://localhost:8080/api/transaction/emails")
+    console.log(data)
+    return data
+}
+
 }

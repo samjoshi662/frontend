@@ -48,9 +48,13 @@ export class LoginComponent implements OnInit {
       this.loginSuccess = true;
       this.successMessage = 'Login Successful';
       this.router.navigate([''])
+      console.log(result)
       sessionStorage.setItem('username', this.username)
       sessionStorage.setItem('role', result.role)
+      sessionStorage.setItem('name',result.status)
+      console.log(result)
       // redirect to main page
+
       this.router.navigate([''])
       }
       else{
