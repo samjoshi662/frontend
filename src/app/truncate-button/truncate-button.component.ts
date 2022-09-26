@@ -42,21 +42,21 @@ export class TruncateButtonComponent implements OnInit {
       }
     })
     body = body + "</table>"
-  //   Email.send({
-  //     Host : "smtp.elasticemail.com",
-  //     Username : "nupurdata1901@gmail.com",
-  //     Password : "CAE79BCA913525A8F03A1709ADB253F4978F",
-  //     To : 'shahnupur1901@gmail.com',
-  //     From : "nupurdata1901@gmail.com",
-  //     Subject : "Sanction Report",
-  //     Body : body
-  // }).then(
-  //   message => {
-  //     alert("Email sent "+(message))
-  //     // if(message!="ok") alert("Email sent.")
-  //     // else alert(message)
-  //   }
-  // );
+    Email.send({
+      Host : "smtp.elasticemail.com",
+      Username : "nupurdata1901@gmail.com",
+      Password : "CAE79BCA913525A8F03A1709ADB253F4978F",
+      To : 'shahnupur1901@gmail.com',
+      From : "nupurdata1901@gmail.com",
+      Subject : "Sanction Report",
+      Body : body
+  }).then(
+    message => {
+      alert("Email sent "+(message))
+      // if(message!="ok") alert("Email sent.")
+      // else alert(message)
+    }
+  );
 
     this.truncateService.upload().subscribe(
         (data: any) => {
