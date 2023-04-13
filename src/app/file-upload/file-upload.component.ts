@@ -48,28 +48,28 @@ export class FileUploadComponent implements OnInit {
                             break
                         }
                     }
-            //         this.fileUploadService.email().subscribe((emails :[])=>{
-            //             console.log(emails)
-            //             emails.forEach((email)=>{
-            //                 Email.send({
-            //                     Host : "smtp.elasticemail.com",
-            //                     Username : "nupurdata1901@gmail.com",
-            //                     Password : "",
-            //                     To : email,
-            //                     From : "nupurdata1901@gmail.com",
-            //                     Subject : "Transaction Failure",
-            //                     Body : "Your transaction with reference no "+refNo+" has failed. Please contact your bank for further information."
-            //                 }).then(
-            //                   message => {
-            //                     // alert("Email sent "+(message))
-            //                     // if(message!="ok") alert("Email sent.")
-            //                     // else alert(message)
-            //                   }
-            //                 )
-            //         })
+                    this.fileUploadService.email().subscribe((emails :[])=>{
+                        console.log(emails)
+                        emails.forEach((email)=>{
+                            Email.send({
+                                Host : "smtp.elasticemail.com",
+                                Username : "nupurdata1901@gmail.com",
+                                Password : "CAE79BCA913525A8F03A1709ADB253F4978F",
+                                To : email,
+                                From : "nupurdata1901@gmail.com",
+                                Subject : "Transaction Failure",
+                                Body : "Your transaction with reference no "+refNo+" has failed. Please contact your bank for further information."
+                            }).then(
+                              message => {
+                                // alert("Email sent "+(message))
+                                // if(message!="ok") alert("Email sent.")
+                                // else alert(message)
+                              }
+                            )
+                    })
                 
-            // }
-        //)
+            }
+        )
     }
     )};
         
